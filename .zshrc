@@ -66,7 +66,7 @@ fi
 
 RPROMPT="`/Users/jonny/bin/batcharge.py 2>/dev/null`"
 
-
+#Enable options
 setopt autocd #cd's to directory if directory name is issued as command
 setopt correctall correct_all 
 setopt hash_list_all
