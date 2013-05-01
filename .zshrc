@@ -65,7 +65,6 @@ else
 fi
 
 #Only works on Mac laptops. If path can't be reached there is no rprompt.
-if [[ `uname` == 'Darwin' ]] ; then
 	RPROMPT="`/Users/jonny/bin/batcharge.py 2>/dev/null`"
 
 #Enable options
