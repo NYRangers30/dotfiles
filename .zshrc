@@ -1,3 +1,7 @@
+export HISTSIZE=2000
+export HISTFILE="$HOME/.zsh_history"
+export SAVEHIST=$HISTSIZE
+
 # Colors
 fg_black=$'%{\e[0;30m%}'
 fg_red=$'%{\e[0;31m%}'
@@ -66,9 +70,6 @@ RPROMPT="`/Users/jonny/bin/batcharge.py 2>/dev/null`"
 setopt autocd #cd's to directory if directory name is issued as command
 setopt correctall correct_all 
 setopt hash_list_all
-export HISTSIZE=2000
-export HISTFILE="$HOME/.zsh_history"
-export SAVEHIST=$HISTSIZE
 setopt append_history
 setopt share_history
 setopt extended_history
