@@ -64,6 +64,7 @@ else
 	PROMPT="${fg_red}${EXITCODE}${fg_reset}${fg_lcyan}%n${fg_lmagenta}@%m ${fg_reset}%~%# "
 fi
 
+#Only works on Mac laptops. If path can't be reached there is no rprompt.
 RPROMPT="`/Users/jonny/bin/batcharge.py 2>/dev/null`"
 
 #Enable options
