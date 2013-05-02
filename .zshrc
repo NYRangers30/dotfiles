@@ -77,3 +77,7 @@ setopt extended_history
 setopt histignorealldups
 setopt AUTO_PUSHD
 
+bindkey '^a' backward-word
+bindkey '^d' forward-word
+bindkey '^w' beginning-of-line
+bindkey '^e' end-of-line
