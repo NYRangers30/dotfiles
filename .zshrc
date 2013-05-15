@@ -55,12 +55,6 @@ alias pyt='/usr/bin/python'
 alias -g woody='woody.jonpucila.com'
 alias jontop='ssh -p 2222 -l jon woody.jonpucila.com'
 
-# Mac Specific Aliases
-if [ `uname` = "Darwin" ]; then
-	alias md5sum='/usr/bin/openssl md5'
-	alias sha1sum='/usr/bin/openssl sha1'
-fi
-
 # Variables
 EXITCODE="%(?..%?%1v )"
 
