@@ -46,7 +46,8 @@ at_reverseoff=%{$'\e[27m'%}
 at_strikeoff=%{$'\e[29m'%}
 
 # Aliases
-alias la='/bin/ls -hal'
+alias ls="/bin/ls" #Declared here so it can safely be referenced by other ls aliases. Generally overriden in OS specific configs to use color.
+alias la='ls -hal'
 alias pyt='/usr/bin/python'
 alias -g woody='woody.jonpucila.com'
 alias jontop='ssh -p 2222 -l jon woody.jonpucila.com'

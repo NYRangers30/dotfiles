@@ -4,6 +4,7 @@
 # Alias Declaration
 alias md5sum='/usr/bin/openssl md5'
 alias sha1sum='/usr/bin/openssl sha1'
+alias ls='/bin/ls -G'
 
 #Custom RPROMPT that displays battery usage in RPROMPT
 #Only works on Mac laptops. If path can't be reached there is no rprompt.
