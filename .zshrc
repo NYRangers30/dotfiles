@@ -45,10 +45,6 @@ at_blinkoff=%{$'\e[25m'%}
 at_reverseoff=%{$'\e[27m'%}
 at_strikeoff=%{$'\e[29m'%}
 
-
-
-autoload -U compinit
-
 # Aliases
 alias la='/bin/ls -hal'
 alias pyt='/usr/bin/python'
@@ -64,11 +60,15 @@ fi
 # Variables
 EXITCODE="%(?..%?%1v )"
 
+
+
 if [[ `whoami` == 'root' ]] ; then
-	PROMPT="${fg_red}${EXITCODE}${fg_reset}${fg_lred}%n${fg_lgreen}@%m ${fg_reset}%~%# "
+	ME="${fg_lred}%n${fg_lgreen}@%m${fg_reset}"
 else
-	PROMPT="${fg_red}${EXITCODE}${fg_reset}${fg_lcyan}%n${fg_lmagenta}@%m ${fg_reset}%~%# "
+	ME="${fg_lcyan}%n${fg_lmagenta}@%m${fg_reset}"
 fi
+
+PROMPT="${fg_red}${EXITCODE}${fg_reset}${ME} %~%# "
 
 #Only works on Mac laptops. If path can't be reached there is no rprompt.
 	RPROMPT="`/Users/jonny/bin/batcharge.py 2>/dev/null`"
@@ -83,9 +83,22 @@ setopt extended_history
 setopt histignorealldups
 setopt AUTO_PUSHD
 
+# Menu style tab completion
+autoload -U compinit && compinit
+zstyle ':completion:*' menu select
+zstyle ':completion:*:corrections'     format $'%{\e[0;31m%}%d (errors:      %e)%{\e[0m%}'
+zstyle ':completion:*:default'         list-colors ${(s.:.)LS_COLORS}
+ 
+# format on completion
+zstyle ':completion:*:descriptions'    format $'%{\e[0;31m%}completing      %B%d%b%{\e[0m%}'
+
 #bindkey '^[[5D' backward-word #Uses left arrow
 #bindkey '^[[5C' forward-word #Uses right arrow
 bindkey '^b' backward-word
 bindkey '^f' forward-word
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
+
+# Include a local .zshrc config if one exists
+#if [[ -r ~/.zshrc_local ]]; then
+#	source ~/.zshrc_local
