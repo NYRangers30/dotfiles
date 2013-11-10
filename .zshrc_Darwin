@@ -1,0 +1,10 @@
+# .zshrc configuration that only applies to Mac's
+# Loaded at end of ~/.zshrc
+
+# Alias Declaration
+alias md5sum='/usr/bin/openssl md5'
+alias sha1sum='/usr/bin/openssl sha1'
+
+#Custom RPROMPT that displays battery usage in RPROMPT
+#Only works on Mac laptops. If path can't be reached there is no rprompt.
+RPROMPT="`/Users/jonny/bin/batcharge.py 2>/dev/null`"

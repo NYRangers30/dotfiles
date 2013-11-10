@@ -51,16 +51,8 @@ alias pyt='/usr/bin/python'
 alias -g woody='woody.jonpucila.com'
 alias jontop='ssh -p 2222 -l jon woody.jonpucila.com'
 
-# Mac Specific Aliases
-if [ `uname` = "Darwin" ]; then
-	alias md5sum='/usr/bin/openssl md5'
-	alias sha1sum='/usr/bin/openssl sha1'
-fi
-
 # Variables
 EXITCODE="%(?..%?%1v )"
-
-
 
 if [[ `whoami` == 'root' ]] ; then
 	ME="${fg_lred}%n${fg_lgreen}@%m${fg_reset}"
@@ -69,9 +61,6 @@ else
 fi
 
 PROMPT="${fg_red}${EXITCODE}${fg_reset}${ME} %~%# "
-
-#Only works on Mac laptops. If path can't be reached there is no rprompt.
-	RPROMPT="`/Users/jonny/bin/batcharge.py 2>/dev/null`"
 
 #Enable options
 setopt autocd #cd's to directory if directory name is issued as command
@@ -100,5 +89,12 @@ bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 
 # Include a local .zshrc config if one exists
-#if [[ -r ~/.zshrc_local ]]; then
-#	source ~/.zshrc_local
+if [[ -r ~/.zshrc_local ]]; then
+	source ~/.zshrc_local
+fi
+
+# Load zsh config specific to this OSs
+if [[ -r ~/.zshrc_`uname` ]]; then
+	source ~/.zshrc_`uname`
+fi
+
