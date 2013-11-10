@@ -1,4 +1,4 @@
 #Linux specific zsh config
 
 #alias declaration
-alias ls='ls --color=auto'
+alias ls='/bin/ls --color=auto'
